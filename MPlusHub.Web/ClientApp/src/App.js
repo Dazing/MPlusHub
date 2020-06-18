@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router';
-import { MasterLayout } from './components/MasterLayout';
-import { HomePage } from './pages/HomePage/HomePage';
+import MasterLayout from './layouts/MasterLayout';
+import HomePage from './pages/HomePage/HomePage';
+import { DependencyInjection } from './contexts/DependencyInjection';
 
 import './App.css'
 
-export default class App extends Component {
-  static displayName = App.name;
+const App = () => {
 
-  render () {
-    return (
-      <MasterLayout>
+  return (
+    <MasterLayout>
+      <DependencyInjection.Provider>
         <Route exact path='/' component={HomePage} />
-      </MasterLayout>
-    );
-  }
+      </DependencyInjection.Provider>
+    </MasterLayout>
+  );
 }
+
+export default App;

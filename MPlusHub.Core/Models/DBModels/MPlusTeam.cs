@@ -8,6 +8,8 @@ namespace MPlusHub.Core.Models.DBModels
 
         public string TeamName { get; set; }
 
-        public List<MPlusTeamMember> TeamMembers { get; set; }
+        public List<Character> Characters { get; set; }
+
+        public List<User> TeamMembers { get; set; }
     }
 }
