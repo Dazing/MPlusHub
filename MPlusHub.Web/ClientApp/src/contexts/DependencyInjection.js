@@ -1,8 +1,8 @@
 import React from 'react';
 import ServiceProvider from '../services/ServiceProvider';
 
-const dependencies = () => ({
+export const GetDependencies = () => ({
   ServiceProvider: ServiceProvider,
 });
 
-export const DependencyInjection = () => React.createContext(dependencies);
+export const DependencyInjection = React.createContext({});

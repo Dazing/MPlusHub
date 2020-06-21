@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
 import { DependencyInjection } from '../../contexts/DependencyInjection';
 
-const HomePage = (props) => {
-    const dependencyInjection = useContext(DependencyInjection);
-
+const TeamPage = (props) => {
     return ( 
         <div>
             HomePage
@@ -11,4 +9,4 @@ const HomePage = (props) => {
      );
 }
  
-export default HomePage;
+export default TeamPage;

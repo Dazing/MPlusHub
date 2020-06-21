@@ -1,0 +1,13 @@
+div#app-wrapper {
+  height: 100%;
+  width: 100%;
+
+  display: -ms-grid;
+	display: grid;
+
+  -ms-grid-rows: 60px 50px 1fr;
+  -ms-grid-columns: 1fr;
+
+  grid-template-rows: 60px 50px 1fr;
+	grid-template-columns: 1fr;
+}
