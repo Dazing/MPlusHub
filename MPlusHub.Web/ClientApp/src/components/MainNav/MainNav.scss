@@ -1,13 +1,28 @@
-div#app-wrapper {
+@import "../../commons/variables.scss";
+
+div#app-main-nav {
   height: 100%;
-  width: 100%;
+  
+  margin: 0px auto;
 
-  display: -ms-grid;
-	display: grid;
+  div.app-nav-link {
+    height: 100%;
+    padding: 0px 10px;
+    margin: 0px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 60px;
+    height: 60px;
+    display: block;
+    float: left;
+  }
 
-  -ms-grid-row: 1fr;
-  -ms-grid-columns: 1fr 400px 1fr;
 
-	grid-template-rows: 1fr;
-  grid-template-columns: 1fr 400px 1fr;
+  div.app-nav-link.active,
+  div.app-nav-link:hover {
+    height: 55px;
+    padding-bottom: 0px;
+    border-bottom: 5px solid $app-accent-dark;
+  }
 }

@@ -1,10 +1,20 @@
+@import './commons/variables.scss';
+
+
 * {
   margin: 0;
   padding: 0;
+
+  font-family: Montserrat, Arial, Sans Serif;
+}
+
+a {
+  text-decoration: none;
+  color: $app-surface-dark-lighter;
 }
 
 html, body, div#root {
   width: 100%;
   height: 100%;
-  background: #121212;
+  background: $app-background-dark;
 }
