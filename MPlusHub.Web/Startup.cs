@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using MPlusHub.Core.Models.DBModels;
 using MPlusHub.Core.Contexts;
 using MPlusHub.Web.Extensions;
+using System.Collections.Generic;
 
 namespace MPlusHub.Web
 {
@@ -60,6 +61,12 @@ namespace MPlusHub.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v8.3.0/swagger.json", "MPlus Hub API v8.3.0");
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
