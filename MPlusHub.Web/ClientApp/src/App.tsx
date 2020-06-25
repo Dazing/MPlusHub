@@ -11,7 +11,7 @@ const App = () => {
   return (
     <MasterLayout>
       <Route exact path='/' component={HomePage} />
-      <Route path='/teams*' component={TeamPage} />
+      <Route path='/team*' component={TeamPage} />
     </MasterLayout>
   );
 }

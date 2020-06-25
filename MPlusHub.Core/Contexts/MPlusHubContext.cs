@@ -1,14 +1,14 @@
 using IdentityServer4.EntityFramework.Options;
-using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MPlusHub.Core.Models.DBModels;
 
 namespace MPlusHub.Core.Contexts
 {
-    public class MPlusHubContext : ApiAuthorizationDbContext<User>
+    public class MPlusHubContext : IdentityDbContext<User>
     {
-        public MPlusHubContext(DbContextOptions<MPlusHubContext> options, IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+        public MPlusHubContext(DbContextOptions<MPlusHubContext> options) : base(options)
         {
         }
 

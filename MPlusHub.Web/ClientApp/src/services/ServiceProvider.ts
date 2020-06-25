@@ -1,11 +1,12 @@
 import { HttpService } from "./HttpService";
+import { AuthService } from "./AuthService";
 
 export class ServiceProvider {
-  HttpService: HttpService;
+  HttpService: HttpService | null = null;
+  AuthService: AuthService | null = null;
 
   constructor(
-    httpService: HttpService,
   ) {
-    this.HttpService = httpService;
   }
+  
 }

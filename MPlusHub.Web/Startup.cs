@@ -1,19 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using MPlusHub.Core.Models.DBModels;
 using MPlusHub.Core.Contexts;
 using MPlusHub.Web.Extensions;
-using System.Collections.Generic;
 
 namespace MPlusHub.Web
 {
@@ -30,16 +24,19 @@ namespace MPlusHub.Web
         public void ConfigureServices(IServiceCollection services)
         {
             var defaultConnection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<MPlusHubContext>(options => options.UseSqlServer(defaultConnection));
+            services.AddDbContext<MPlusHubContext>(options =>
+            {
+                options.UseSqlServer(defaultConnection);
+            });
 
-            services.AddMPHAuthentication();
+            services.AddMPHAuthentication(Configuration);
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v8.3.0", new OpenApiInfo { Title = "MPlusHub API", Version = "v8.3.0" });
             });
 
-            services.AddControllersWithViews();
+            services.AddControllers();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -65,7 +62,7 @@ namespace MPlusHub.Web
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v8.3.0/swagger.json", "MPlus Hub API v8.3.0");
+                c.SwaggerEndpoint("/swagger/v8.3.0/swagger.json", "MPlusHub API");
             });
 
             app.UseHttpsRedirection();
@@ -75,7 +72,6 @@ namespace MPlusHub.Web
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseIdentityServer();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { DependencyInjection } from '../../contexts/DependencyInjection';
 
 const HomePage = (props) => {
-    const dependencyInjection = useContext(DependencyInjection);
+    const serviceProvider = useContext(DependencyInjection);
 
     return ( 
         <div>

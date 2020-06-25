@@ -1,4 +1,22 @@
+@import "../../commons/variables.scss";
+
 div#app-user-info {
   height: 100%;
   width: 100%;
+
+  div.app-auth-button {
+    padding: 0px 10px;
+    margin: 0px 10px 0px 0px;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 60px;
+    height: 60px;
+    display: block;
+    float: right;
+  }
+  div.app-auth-button:hover {
+    cursor: pointer;
+    background: $app-surface-dark-darker;
+  }
 }

@@ -18,5 +18,11 @@ namespace MPlusHub.Web.Controllers
         {
             
         }
+
+        [HttpGet]
+        public string GetTeams()
+        {
+            return "Teams!";
+        }
     }
 }

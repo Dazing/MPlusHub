@@ -11,7 +11,7 @@ const isActiveLink = (page: Page) => {
 
 interface IAppLink { page: Page, isActive: boolean };
 const AppLink: FunctionComponent<IAppLink> = ({ page, isActive }) => (
-  <Link to={page.path}>
+  <Link to={`/${page.path}`}>
     <div className={`app-nav-link ${isActive ? 'active' : ''}`}>
       <span>{page.name}</span>
     </div>
